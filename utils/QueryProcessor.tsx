@@ -1,7 +1,5 @@
 export default function QueryProcessor(query: string): string {
-  query = query.toLowerCase(); // make the query case-insensitive
-
-  if (query.includes("shakespeare")) {
+  if (query.toLowerCase().includes("shakespeare")) {
     return (
       "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
       "English poet, playwright, and actor, widely regarded as the greatest " +
@@ -9,37 +7,34 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
-  if (query.includes("andrew id")) {
-    return "rkensouh";
+  if (query.toLowerCase().includes("andrew id")) {
+    //TODO add your Andrew ID below
+    //TODO update the corresponding test case in __tests__
+    return ( "rkensouh" );
+  }
+  if (query.includes("What is your name?")) {
+    // TODO: add your name or handle here
+    // TODO: update the corresponding test case in __tests__
+    return "rkensouh-313"; // Replace "YourName" with your actual name or handle
   }
 
-  if (query.includes("what is your name?")) {
-    return "rkensouh-313";
+  if (query.toLowerCase().includes("What is 37 plus 2?")) {
+    // TODO: add your name or handle here
+    // TODO: update the corresponding test case in __tests__
+    return "39"; // Replace "YourName" with your actual name or handle
   }
 
-  // Handle dynamic arithmetic (addition)
-  const plusRegex = /what is (\d+(?: plus \d+)*)\?/;
+  // Dynamic handling for "What is X plus Y?"
+  const plusRegex = /What is (\d+) plus (\d+)\?/;
   const plusMatch = query.match(plusRegex);
   if (plusMatch) {
-    const numbers = plusMatch[1]
-      .split(" plus ")
-      .map(num => parseInt(num, 10));
-    const sum = numbers.reduce((acc, num) => acc + num, 0);
-    return sum.toString();
+    const num1 = parseInt(plusMatch[1], 10);
+    const num2 = parseInt(plusMatch[2], 10);
+    return (num1 + num2).toString();
   }
 
-  // Handle dynamic multiplication
-  const multiplyRegex = /what is (\d+) multiplied by (\d+)\?/;
-  const multiplyMatch = query.match(multiplyRegex);
-  if (multiplyMatch) {
-    const num1 = parseInt(multiplyMatch[1], 10);
-    const num2 = parseInt(multiplyMatch[2], 10);
-    const product = num1 * num2;
-    return product.toString();
-  }
-
-  // Handle largest number comparison
-  const largestRegex = /which of the following numbers is the largest: (\d+), (\d+), (\d+)\?/;
+  // Dynamic handling for largest number comparison
+  const largestRegex = /Which of the following numbers is the largest: (\d+), (\d+), (\d+)\?/;
   const largestMatch = query.match(largestRegex);
   if (largestMatch) {
     const numbers = [
@@ -51,8 +46,18 @@ export default function QueryProcessor(query: string): string {
     return largest.toString();
   }
 
-  // Handle numbers that are both square and cube
-  const squareAndCubeRegex = /which of the following numbers is both a square and a cube: ([\d, ]+)\?/;
+   // Handle dynamic multiplication
+   const multiplyRegex = /What is (\d+) multiplied by (\d+)\?/;
+   const multiplyMatch = query.match(multiplyRegex);
+   if (multiplyMatch) {
+     const num1 = parseInt(multiplyMatch[1], 10);
+     const num2 = parseInt(multiplyMatch[2], 10);
+     const product = num1 * num2;
+     return product.toString();
+   }
+
+   // Handle numbers that are both square and cube
+  const squareAndCubeRegex = /Which of the following numbers is both a square and a cube: ([\d, ]+)\?/;
   const squareAndCubeMatch = query.match(squareAndCubeRegex);
   if (squareAndCubeMatch) {
     const numbers = squareAndCubeMatch[1]
@@ -68,4 +73,9 @@ export default function QueryProcessor(query: string): string {
   }
 
   return "";
+
+  
+
 }
+
+
