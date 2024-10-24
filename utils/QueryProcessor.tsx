@@ -12,7 +12,7 @@ export default function QueryProcessor(query: string): string {
     //TODO update the corresponding test case in __tests__
     return ( "rkensouh" );
   }
-  if (query.toLowerCase().includes("what is your name")) {
+  if (query.toLowerCase().includes("What is your name?")) {
     // TODO: add your name or handle here
     // TODO: update the corresponding test case in __tests__
     return "Reem Kensouh"; // Replace "YourName" with your actual name or handle
