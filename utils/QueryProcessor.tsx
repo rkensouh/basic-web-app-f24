@@ -25,7 +25,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   // Dynamic handling for "What is X plus Y?"
-  const plusRegex = /what is (\d+) plus (\d+)\?/;
+  const plusRegex = /What is (\d+) plus (\d+)\?/;
   const plusMatch = query.match(plusRegex);
   if (plusMatch) {
     const num1 = parseInt(plusMatch[1], 10);
@@ -34,7 +34,7 @@ export default function QueryProcessor(query: string): string {
   }
 
   // Dynamic handling for largest number comparison
-  const largestRegex = /which of the following numbers is the largest: (\d+), (\d+), (\d+)\?/;
+  const largestRegex = /Which of the following numbers is the largest: (\d+), (\d+), (\d+)\?/;
   const largestMatch = query.match(largestRegex);
   if (largestMatch) {
     const numbers = [
