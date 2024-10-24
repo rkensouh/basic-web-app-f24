@@ -59,6 +59,31 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe("76");
     });
+     // Test for dynamic multiplication
+     test('should return the result of 9 multiplied by 82', () => {
+        const query = "What is 9 multiplied by 82?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("738");
+    });
+
+    test('should return the result of 18 multiplied by 82', () => {
+        const query = "What is 18 multiplied by 82?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("1476");
+    });
+
+    test('should return the result of 95 multiplied by 58', () => {
+        const query = "What is 95 multiplied by 58?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("5510");
+    });
+
+    // Test for finding numbers that are both square and cube
+    test('should return 64 as both square and cube', () => {
+        const query = "Which of the following numbers is both a square and a cube: 784, 512, 64, 2760, 4180, 1403, 4825?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("64");
+    });
 });
 
 
