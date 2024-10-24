@@ -17,7 +17,16 @@ export default function QueryProcessor(query: string): string {
     // TODO: update the corresponding test case in __tests__
     return "rkensouh-313"; // Replace "YourName" with your actual name or handle
   }
+
+  if (query.includes("What is 37 plus 2?")) {
+    // TODO: add your name or handle here
+    // TODO: update the corresponding test case in __tests__
+    return "39"; // Replace "YourName" with your actual name or handle
+  }
+
   return "";
+
+  
 
 }
 

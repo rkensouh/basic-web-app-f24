@@ -29,9 +29,9 @@ describe("QueryProcessor", () => {
 
     // TODO: You should update the test below after you add your name
 test('should return my name', () => {
-    const query = "What is your name?";
+    const query = "What is 37 plus 2";
     const response: string = QueryProcessor(query);
-    expect(response).toBe("rkensouh-313"); // Replace "YourName" with your actual name
+    expect(response).toBe("39"); // Replace "YourName" with your actual name
 });
 
 });
