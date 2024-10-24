@@ -84,6 +84,26 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe("64");
     });
+
+    // Test for finding prime numbers
+    test('should return prime numbers from 59, 43, 97, 68, 80', () => {
+        const query = "Which of the following numbers are primes: 59, 43, 97, 68, 80?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("59, 43, 97");
+    });
+
+    test('should return prime numbers from 75, 71, 6, 36, 21', () => {
+        const query = "Which of the following numbers are primes: 75, 71, 6, 36, 21?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("71");
+    });
+
+    test('should return prime numbers from 30, 87, 73, 69, 82', () => {
+        const query = "Which of the following numbers are primes: 30, 87, 73, 69, 82?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("73");
+    });
 });
+
 
 

@@ -91,6 +91,15 @@ export default function QueryProcessor(query: string): string {
     return primes.length ? primes.join(", ") : "None";
   }
 
+  const minusRegex = /what is (\d+) minus (\d+)\?/;
+  const minusMatch = query.match(minusRegex);
+  if (minusMatch) {
+    const num1 = parseInt(minusMatch[1], 10);
+    const num2 = parseInt(minusMatch[2], 10);
+    const difference = num1 - num2;
+    return difference.toString();
+  }
+
   return "";
 
   
