@@ -24,13 +24,15 @@ export default function QueryProcessor(query: string): string {
     return "39"; // Replace "YourName" with your actual name or handle
   }
 
-  // Dynamic handling for "What is X plus Y?"
-  const plusRegex = /what is (\d+) plus (\d+)\?/;
+  // Dynamic handling for arithmetic queries (sum of multiple numbers)
+  const plusRegex = /what is (\d+(?: plus \d+)*)\?/;
   const plusMatch = query.match(plusRegex);
   if (plusMatch) {
-    const num1 = parseInt(plusMatch[1], 10);
-    const num2 = parseInt(plusMatch[2], 10);
-    return (num1 + num2).toString();
+    const numbers = plusMatch[1]
+      .split(" plus ") // Split on "plus"
+      .map(num => parseInt(num, 10)); // Convert each to an integer
+    const sum = numbers.reduce((acc, num) => acc + num, 0); // Sum the numbers
+    return sum.toString();
   }
 
   // Dynamic handling for largest number comparison
