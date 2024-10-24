@@ -24,6 +24,28 @@ export default function QueryProcessor(query: string): string {
     return "39"; // Replace "YourName" with your actual name or handle
   }
 
+  // Dynamic handling for "What is X plus Y?"
+  const plusRegex = /what is (\d+) plus (\d+)\?/;
+  const plusMatch = query.match(plusRegex);
+  if (plusMatch) {
+    const num1 = parseInt(plusMatch[1], 10);
+    const num2 = parseInt(plusMatch[2], 10);
+    return (num1 + num2).toString();
+  }
+
+  // Dynamic handling for largest number comparison
+  const largestRegex = /which of the following numbers is the largest: (\d+), (\d+), (\d+)\?/;
+  const largestMatch = query.match(largestRegex);
+  if (largestMatch) {
+    const numbers = [
+      parseInt(largestMatch[1], 10),
+      parseInt(largestMatch[2], 10),
+      parseInt(largestMatch[3], 10),
+    ];
+    const largest = Math.max(...numbers);
+    return largest.toString();
+  }
+
   return "";
 
   
