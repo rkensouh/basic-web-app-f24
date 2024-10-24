@@ -72,6 +72,25 @@ export default function QueryProcessor(query: string): string {
     return result ? result.toString() : "None";
   }
 
+  function isPrime(num: number): boolean {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+  // Handle prime numbers question
+  const primeRegex = /Which of the following numbers are primes: ([\d, ]+)\?/;
+  const primeMatch = query.match(primeRegex);
+  if (primeMatch) {
+    const numbers = primeMatch[1]
+      .split(", ")
+      .map(num => parseInt(num, 10));
+    // Filter prime numbers
+    const primes = numbers.filter(isPrime);
+    return primes.length ? primes.join(", ") : "None";
+  }
+
   return "";
 
   
